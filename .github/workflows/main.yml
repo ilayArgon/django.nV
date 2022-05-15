@@ -30,6 +30,7 @@ jobs:
         run: |
           docker pull zricethezav/gitleaks:latest
           ls
+          pwd
           #docker run --user $(id -u):$(id -g) -v $(pwd):/src --rm hysnsec/detect-secrets /src
           docker run -v ${pwd}:/src zricethezav/gitleaks:latest detect --source="/src" -f json -r /src/result.json
       - uses: actions/upload-artifact@v3
