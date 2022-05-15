@@ -32,7 +32,7 @@ jobs:
           ls -la
           pwd
           touch result.json
-          docker run -v "$PWD:/pwd" trufflesecurity/trufflehog:latest filesystem --directory=/pwd --fail -j | result.json
+          docker run -v "$PWD:/pwd" trufflesecurity/trufflehog:latest filesystem --directory=/pwd --fail -j | tee result.json
           echo $?
 
       - uses: actions/upload-artifact@v3
