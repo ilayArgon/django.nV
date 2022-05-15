@@ -31,7 +31,6 @@ jobs:
           docker pull trufflesecurity/trufflehog:latest
           ls -la
           pwd
-          rm -rf ./.git/
           touch result.json
           docker run -v "$PWD:/pwd" trufflesecurity/trufflehog:latest filesystem --directory=/pwd --fail -j | tee result.json
           ls -la
