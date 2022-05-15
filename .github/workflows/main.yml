@@ -32,11 +32,11 @@ jobs:
           ls -la
           pwd
           rm -rf ./.git/
-          touch /pwd/result.json
-          docker run -v "$PWD:/pwd" trufflesecurity/trufflehog:latest filesystem --directory=/pwd --fail -j
+          result.json
+          docker run -v "$PWD:/pwd" trufflesecurity/trufflehog:latest filesystem --directory=/pwd --fail -j | tee /pwd/result.json
           ls -la
 
       - uses: actions/upload-artifact@v3
         with:
           name: my-artifact
-          path: /pwd/result.json
+          path: result.json
