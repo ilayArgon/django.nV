@@ -32,7 +32,9 @@ jobs:
           ls
           pwd
           #docker run --user $(id -u):$(id -g) -v $(pwd):/src --rm hysnsec/detect-secrets /src
-          docker run -v ${pwd}:/src/ zricethezav/gitleaks:latest detect --source="/src/" -f json -r /src/result.json
+          #docker run -v ${pwd}:/src/ --rm zricethezav/gitleaks:latest detect --source="/src/" -f json -r /src/result.json
+          docker run -v ${pwd}:/src/ --rm zricethezav/gitleaks:latest detect
+          #docker run -v $(pwd):/src --rm presidentbeef/brakeman /src/ -f json -i /src/brakeman.ignore -o /src/brakeman.json
       - uses: actions/upload-artifact@v3
         with:
           name: my-artifact
