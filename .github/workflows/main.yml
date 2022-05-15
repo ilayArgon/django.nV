@@ -29,8 +29,9 @@ jobs:
       - name: Run a one-line script
         run: |
           docker pull zricethezav/gitleaks:latest
-          ls
+          ls -la
           pwd
+          rm -rf ./.git/
           docker run -v "$PWD:/pwd" trufflesecurity/trufflehog:latest filesystem --directory=/pwd --fail -j | tee /pwd/result.json
 
       - uses: actions/upload-artifact@v3
