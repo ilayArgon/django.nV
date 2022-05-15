@@ -33,6 +33,7 @@ jobs:
           pwd
           rm -rf ./.git/
           docker run -v "$PWD:/pwd" trufflesecurity/trufflehog:latest filesystem --directory=/pwd --fail -j | tee /pwd/result.json
+          ls -la
 
       - uses: actions/upload-artifact@v3
         with:
