@@ -28,7 +28,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: |
-          docker pull zricethezav/gitleaks:latest
+          docker pull trufflesecurity/trufflehog:latest
           ls -la
           pwd
           rm -rf ./.git/
