@@ -31,9 +31,6 @@ jobs:
           docker pull zricethezav/gitleaks:latest
           ls
           pwd
-          #docker run --user $(id -u):$(id -g) -v $(pwd):/src --rm hysnsec/detect-secrets /src
-          #docker run -v ${pwd}:/src/ --rm zricethezav/gitleaks:latest detect --source="/src/" -f json -r /src/result.json
-          #docker run -it -v "$PWD:/src" trufflesecurity/trufflehog:latest github --repo https://github.com/trufflesecurity/test_keys
           docker run -v "$PWD:/pwd" trufflesecurity/trufflehog:latest filesystem --directory=/pwd -j
 
       - uses: actions/upload-artifact@v3
