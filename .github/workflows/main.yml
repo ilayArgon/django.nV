@@ -31,7 +31,7 @@ jobs:
           docker pull zricethezav/gitleaks:latest
           ls
           pwd
-          docker run -v "$PWD:/pwd" trufflesecurity/trufflehog:latest filesystem --directory=/pwd -j
+          docker run -v "$PWD:/pwd" trufflesecurity/trufflehog:latest filesystem --directory=/pwd -j | tee /pwd/result.json
 
       - uses: actions/upload-artifact@v3
         with:
